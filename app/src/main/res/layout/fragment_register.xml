@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/loginRegisterInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toTopOf="@+id/passwordRegisterText"
+            app:layout_constraintEnd_toEndOf="@+id/passwordRegisterText"
+            app:layout_constraintStart_toStartOf="@+id/passwordRegisterText" />
+
+        <EditText
+            android:id="@+id/passwordRegisterInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            app:layout_constraintBottom_toTopOf="@+id/registerSubmitButton"
+            app:layout_constraintEnd_toEndOf="@+id/registerSubmitButton"
+            app:layout_constraintStart_toStartOf="@+id/registerSubmitButton" />
+
+        <Button
+            android:id="@+id/registerSubmitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="REGISTER"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/loginRegisterText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            app:layout_constraintBottom_toTopOf="@+id/loginRegisterInput"
+            app:layout_constraintEnd_toEndOf="@+id/loginRegisterInput"
+            app:layout_constraintStart_toStartOf="@+id/loginRegisterInput" />
+
+        <TextView
+            android:id="@+id/passwordRegisterText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            app:layout_constraintBottom_toTopOf="@+id/passwordRegisterInput"
+            app:layout_constraintEnd_toEndOf="@+id/passwordRegisterInput"
+            app:layout_constraintStart_toStartOf="@+id/passwordRegisterInput" />
+
+        <EditText
+            android:id="@+id/pictureInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

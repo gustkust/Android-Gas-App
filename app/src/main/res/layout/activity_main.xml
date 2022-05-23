@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:layout_below="@+id/mainFragmentContainer"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:layout_marginEnd="15dp"
+            android:text="NEW ENTRY"
+            app:layout_constraintEnd_toStartOf="@+id/button2"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_conversion_absoluteHeight="85dp"
+            tools:layout_conversion_absoluteWidth="109dp" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:text="MAP"
+            app:layout_constraintEnd_toStartOf="@+id/space"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_conversion_absoluteHeight="85dp"
+            tools:layout_conversion_absoluteWidth="85dp" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:text="USERS"
+            app:layout_constraintStart_toEndOf="@+id/space"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_conversion_absoluteHeight="85dp"
+            tools:layout_conversion_absoluteWidth="85dp" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:layout_marginStart="15dp"
+            android:text="MY DATA"
+            app:layout_constraintStart_toEndOf="@+id/button3"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_conversion_absoluteHeight="85dp"
+            tools:layout_conversion_absoluteWidth="85dp" />
+
+        <Space
+            android:id="@+id/space"
+            android:layout_width="15dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/mainFragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="580dp" />
+
+</RelativeLayout>

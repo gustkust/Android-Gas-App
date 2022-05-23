@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddEntryFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/addEntryButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ADD ENTRY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/amountInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toTopOf="@+id/addEntryButton"
+            app:layout_constraintEnd_toEndOf="@+id/addEntryButton"
+            app:layout_constraintStart_toStartOf="@+id/addEntryButton" />
+
+        <EditText
+            android:id="@+id/priceInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toTopOf="@+id/amountText"
+            app:layout_constraintEnd_toEndOf="@+id/amountText"
+            app:layout_constraintStart_toStartOf="@+id/amountText" />
+
+        <TextView
+            android:id="@+id/amountText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Amount"
+            app:layout_constraintBottom_toTopOf="@+id/amountInput"
+            app:layout_constraintEnd_toEndOf="@+id/amountInput"
+            app:layout_constraintStart_toStartOf="@+id/amountInput" />
+
+        <TextView
+            android:id="@+id/priceText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price"
+            app:layout_constraintBottom_toTopOf="@+id/priceInput"
+            app:layout_constraintEnd_toEndOf="@+id/priceInput"
+            app:layout_constraintStart_toStartOf="@+id/priceInput" />
+
+        <TextView
+            android:id="@+id/typeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Type"
+            app:layout_constraintBottom_toTopOf="@+id/typeRadioGroup"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <RadioGroup
+            android:id="@+id/typeRadioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/priceText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_gas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Gas" />
+
+            <RadioButton
+                android:id="@+id/rb_repair"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Repair" />
+
+            <RadioButton
+                android:id="@+id/rb_insurance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Insurance" />
+        </RadioGroup>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
