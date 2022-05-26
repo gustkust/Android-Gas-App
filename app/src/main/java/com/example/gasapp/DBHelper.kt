@@ -117,7 +117,8 @@ class DBHelper(context: Context?) : SQLiteOpenHelper(
 
     fun getUsersEntries(user: User): ArrayList<Entry> {
         val entries = ArrayList<Entry>()
-        val selectQuery = "SELECT * FROM $ENTRY_TABLE_NAME WHERE $COL_USER_ID = $user.id"
+        val id = user.id
+        val selectQuery = "SELECT * FROM $ENTRY_TABLE_NAME WHERE $COL_USER_ID = $id ORDER BY $COL_DATE DESC"
         val db = this.writableDatabase
         val cursor = db.rawQuery(selectQuery, null)
         if (cursor.moveToFirst()) {
@@ -148,7 +149,7 @@ class DBHelper(context: Context?) : SQLiteOpenHelper(
         var amount_sum = 0.0
         if (cursor.moveToFirst()) {
             do {
-                if (cursor.getString(cursor.getColumnIndexOrThrow(COL_TYPE)) == "gas") {
+                if (cursor.getString(cursor.getColumnIndexOrThrow(COL_TYPE)) == "Gas") {
                     price_sum += cursor.getDouble(cursor.getColumnIndexOrThrow(COL_PRICE))
                     amount_sum += cursor.getDouble(cursor.getColumnIndexOrThrow(COL_AMOUNT))
                 }

@@ -5,7 +5,9 @@
       <map>
         <entry key="..\:/Users/gkust/AndroidStudioProjects/GasApp/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/gkust/AndroidStudioProjects/GasApp/app/src/main/res/layout/card_layout.xml" value="0.348731884057971" />
+        <entry key="..\:/Users/gkust/AndroidStudioProjects/GasApp/app/src/main/res/layout/entry_card_layout.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/gkust/AndroidStudioProjects/GasApp/app/src/main/res/layout/fragment_add_entry.xml" value="0.3292572463768116" />
+        <entry key="..\:/Users/gkust/AndroidStudioProjects/GasApp/app/src/main/res/layout/fragment_entries_list.xml" value="0.1675925925925926" />
         <entry key="..\:/Users/gkust/AndroidStudioProjects/GasApp/app/src/main/res/layout/fragment_login.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/gkust/AndroidStudioProjects/GasApp/app/src/main/res/layout/fragment_login_register.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/gkust/AndroidStudioProjects/GasApp/app/src/main/res/layout/fragment_map.xml" value="0.3292572463768116" />

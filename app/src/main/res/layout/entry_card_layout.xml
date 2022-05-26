@@ -12,19 +12,10 @@
     app:contentPadding="4dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/relativeLayout"
-        android:padding="16dp"
-        >
-
-        <ImageView
-            android:id="@+id/userPicture"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        android:padding="16dp">
 
         <TextView
             android:id="@+id/entryTypeInput"
@@ -33,19 +24,28 @@
             android:layout_marginStart="16dp"
             android:gravity="center"
             android:textSize="24sp"
-            app:layout_constraintStart_toEndOf="@+id/userPicture"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/entryDateInput"
+            android:layout_width="wrap_content"
+            android:layout_height="33dp"
+            android:gravity="center"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/entryTypeInput"
+            app:layout_constraintTop_toBottomOf="@+id/entryTypeInput" />
 
         <TextView
             android:id="@+id/entryPriceText"
             android:layout_width="wrap_content"
             android:layout_height="33dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:gravity="center"
-            android:text="Last entry: "
+            android:text="Price: "
             android:textSize="16sp"
-            app:layout_constraintStart_toEndOf="@+id/userPicture"
-            app:layout_constraintTop_toBottomOf="@+id/entryTypeInput" />
+            app:layout_constraintStart_toEndOf="@+id/entryTypeInput"
+            app:layout_constraintTop_toTopOf="@+id/entryTypeInput" />
 
         <TextView
             android:id="@+id/entryPriceInput"
@@ -54,7 +54,7 @@
             android:gravity="center"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/entryPriceText"
-            app:layout_constraintTop_toBottomOf="@+id/entryTypeInput" />
+            app:layout_constraintTop_toTopOf="@+id/entryPriceText" />
 
         <TextView
             android:id="@+id/entryAmountInput"
@@ -63,18 +63,18 @@
             android:gravity="center"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/entryAmountText"
-            app:layout_constraintTop_toBottomOf="@+id/entryPriceText" />
+            app:layout_constraintTop_toTopOf="@+id/entryAmountText" />
 
         <TextView
             android:id="@+id/entryAmountText"
             android:layout_width="wrap_content"
             android:layout_height="33dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:gravity="center"
-            android:text="Average gas price: "
+            android:text="Amount: "
             android:textSize="16sp"
-            app:layout_constraintStart_toEndOf="@+id/userPicture"
-            app:layout_constraintTop_toBottomOf="@+id/entryPriceText" />
+            app:layout_constraintStart_toEndOf="@+id/entryPriceInput"
+            app:layout_constraintTop_toTopOf="@+id/entryPriceText" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

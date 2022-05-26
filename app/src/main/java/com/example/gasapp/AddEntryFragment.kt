@@ -36,6 +36,7 @@ class AddEntryFragment : Fragment() {
                 amountInput.visibility = View.VISIBLE
                 amountText.visibility = View.VISIBLE
             } else {
+                amountInput.text = "0.0"
                 amountInput.visibility = View.INVISIBLE
                 amountText.visibility = View.INVISIBLE
             }
@@ -43,6 +44,7 @@ class AddEntryFragment : Fragment() {
 
         repairButton.setOnClickListener() {
             if (typeInput.checkedRadioButtonId == R.id.rb_repair) {
+                amountInput.text = "0.0"
                 amountInput.visibility = View.INVISIBLE
                 amountText.visibility = View.INVISIBLE
             } else {
@@ -53,6 +55,7 @@ class AddEntryFragment : Fragment() {
 
         insuranceButton.setOnClickListener() {
             if (typeInput.checkedRadioButtonId == R.id.rb_insurance) {
+                amountInput.text = "0.0"
                 amountInput.visibility = View.INVISIBLE
                 amountText.visibility = View.INVISIBLE
             } else {

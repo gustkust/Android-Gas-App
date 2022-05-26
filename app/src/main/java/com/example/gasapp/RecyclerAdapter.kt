@@ -1,13 +1,13 @@
 package com.example.gasapp
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 
 class RecyclerAdapter(private val context: Context?, private var users: ArrayList<UserBasicInfo>): RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
@@ -20,7 +20,9 @@ class RecyclerAdapter(private val context: Context?, private var users: ArrayLis
         holder.userNameText.text = users[position].name
         holder.lastEntryValue.text = users[position].last_entry_date
         holder.userAverageGasPriceValue.text = users[position].average_fuel_consumption.toString()
-        // holder.itemImage.setImageResource(context.resources.getIdentifier(images[position], "drawable", context.packageName))
+
+        Picasso.get().load(users[position].picture)
+            .into(holder.userPicture)
     }
 
     override fun getItemCount(): Int {
@@ -35,9 +37,9 @@ class RecyclerAdapter(private val context: Context?, private var users: ArrayLis
 
         init {
             userPicture = itemView.findViewById(R.id.userPicture)
-            userNameText = itemView.findViewById(R.id.userNameText)
-            lastEntryValue = itemView.findViewById(R.id.lastEntryValue)
-            userAverageGasPriceValue = itemView.findViewById(R.id.userAverageGasPriceValue)
+            userNameText = itemView.findViewById(R.id.entryTypeInput)
+            lastEntryValue = itemView.findViewById(R.id.entryPriceInput)
+            userAverageGasPriceValue = itemView.findViewById(R.id.entryAmountInput)
         }
     }
 }

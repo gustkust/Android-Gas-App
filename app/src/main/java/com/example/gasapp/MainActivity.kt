@@ -88,9 +88,14 @@ class MainActivity : AppCompatActivity(), OnDataPass {
             fragmentTransaction.replace(R.id.mainFragmentContainer, LoginRegisterFragment())
             fragmentTransaction.commit()
         } else if (data == "4") {
+            val bundle = Bundle()
+            bundle.putString("name", loggedUser.name)
+            val fragment = ProfileFragment()
+            fragment.arguments = bundle
+
             val fragmentManager = supportFragmentManager
             val fragmentTransaction = fragmentManager.beginTransaction()
-            fragmentTransaction.replace(R.id.mainFragmentContainer, ProfileFragment())
+            fragmentTransaction.replace(R.id.mainFragmentContainer, fragment)
             fragmentTransaction.commit()
         } else {
             loggedUser = dbHelper.getUserByName(data)!!
