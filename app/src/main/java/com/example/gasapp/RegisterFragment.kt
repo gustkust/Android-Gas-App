@@ -106,25 +106,44 @@ class RegisterFragment : Fragment() {
 
         val dbHelper = DBHelper(context)
         confirmRegisterButton.setOnClickListener {
-            if (dbHelper.addUser(
-                    User(
-                        0,
-                        loginText.text.toString(),
-                        passwordText.text.toString(),
-                        pictureUrl
-                    )
-                )
+            if (pictureUrl == "tmp") {
+                Toast.makeText(context, "Pick a picture.", Toast.LENGTH_LONG).show()
+            } else if (loginText.text.toString().length < 3
+                || loginText.text.toString().length > 10
+                || passwordText.text.toString().length < 3
+                || passwordText.text.toString().length > 10
             ) {
                 Toast.makeText(
                     context,
-                    "Registration completed, you can now log in.",
+                    "Name and password must be between 3 and 10 letters.",
                     Toast.LENGTH_LONG
                 ).show()
-                passData("loginRegister")
+            } else if (loginText.text.toString() == "login" ||
+                loginText.text.toString() == "register" ||
+                loginText.text.toString() == "loginRegister" ||
+                loginText.text.toString() == "4"
+            ) {
+                Toast.makeText(context, "Can't use that name.", Toast.LENGTH_LONG).show()
             } else {
-                Toast.makeText(context, "Name already taken.", Toast.LENGTH_LONG).show()
+                if (dbHelper.addUser(
+                        User(
+                            0,
+                            loginText.text.toString(),
+                            passwordText.text.toString(),
+                            pictureUrl
+                        )
+                    )
+                ) {
+                    Toast.makeText(
+                        context,
+                        "Registration completed, you can now log in.",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    passData("loginRegister")
+                } else {
+                    Toast.makeText(context, "Name already taken.", Toast.LENGTH_LONG).show()
+                }
             }
-
         }
 
 

@@ -15,6 +15,9 @@ class AddEntryFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val numberRegex = Regex("^\\d+$")
+        val doubleRegex = Regex("^[0-9]+\\.[0-9]+\$")
+
         val view = inflater.inflate(R.layout.fragment_add_entry, container, false)
 
         val addEntryLoginButton = view.findViewById<Button>(R.id.addEntryButton)
@@ -65,19 +68,40 @@ class AddEntryFragment : Fragment() {
         }
 
         addEntryLoginButton.setOnClickListener {
-            val id  = typeInput.checkedRadioButtonId
-            dbHelper.addEntry(
-                Entry(
-                    0,
-                    user?.id ?: 0,
-                    view.findViewById<RadioButton>(id).text.toString(),
-                    priceInput.text.toString().toDouble(),
-                    amountInput.text.toString().toDouble(),
-                    ""
+            if (priceInput.text.toString().length > 10
+                || amountInput.text.toString().length > 10
+            ) {
+                Toast.makeText(
+                    context,
+                    "Too long input.",
+                    Toast.LENGTH_LONG
+                ).show()
+            } else if (
+                (
+                        numberRegex.containsMatchIn(priceInput.text.toString()) ||
+                                doubleRegex.containsMatchIn(priceInput.text.toString())
+                        ) && (
+                        numberRegex.containsMatchIn(amountInput.text.toString()) ||
+                                doubleRegex.containsMatchIn(amountInput.text.toString())
+                        )
+
+            ) {
+                val id = typeInput.checkedRadioButtonId
+                dbHelper.addEntry(
+                    Entry(
+                        0,
+                        user?.id ?: 0,
+                        view.findViewById<RadioButton>(id).text.toString(),
+                        priceInput.text.toString().toDouble(),
+                        amountInput.text.toString().toDouble(),
+                        ""
+                    )
                 )
-            )
-            Toast.makeText(context, "Entry added.", Toast.LENGTH_LONG).show()
-            passData("4")
+                Toast.makeText(context, "Entry added.", Toast.LENGTH_LONG).show()
+                passData("4")
+            } else {
+                Toast.makeText(context, "Values must be numbers.", Toast.LENGTH_LONG).show()
+            }
         }
 
         // Inflate the layout for this fragment
@@ -91,7 +115,7 @@ class AddEntryFragment : Fragment() {
         dataPasser = context as OnDataPass
     }
 
-    fun passData(data: String){
+    fun passData(data: String) {
         dataPasser.onDataPass(data)
     }
 }

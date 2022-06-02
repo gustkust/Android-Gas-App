@@ -25,11 +25,27 @@ class LoginFragment : Fragment() {
 
         val dbHelper = DBHelper(context)
         confirmLoginButton.setOnClickListener {
-            if (dbHelper.checkPassword(loginText.text.toString(), passwordText.text.toString())) {
-                Toast.makeText(context, "You are now logged in.", Toast.LENGTH_LONG).show()
-                passData(loginText.text.toString())
+            if (loginText.text.toString().length < 3
+                || loginText.text.toString().length > 10
+                || passwordText.text.toString().length < 3
+                || passwordText.text.toString().length > 10
+            ) {
+                Toast.makeText(
+                    context,
+                    "Name and password are between 3 and 10 letters.",
+                    Toast.LENGTH_LONG
+                ).show()
             } else {
-                Toast.makeText(context, "Wrong password.", Toast.LENGTH_LONG).show()
+                if (dbHelper.checkPassword(
+                        loginText.text.toString(),
+                        passwordText.text.toString()
+                    )
+                ) {
+                    Toast.makeText(context, "You are now logged in.", Toast.LENGTH_LONG).show()
+                    passData(loginText.text.toString())
+                } else {
+                    Toast.makeText(context, "Wrong password.", Toast.LENGTH_LONG).show()
+                }
             }
         }
 
@@ -45,7 +61,7 @@ class LoginFragment : Fragment() {
         dataPasser = context as OnDataPass
     }
 
-    fun passData(data: String){
+    fun passData(data: String) {
         dataPasser.onDataPass(data)
     }
 }
