@@ -11,6 +11,7 @@ class LoadingActivity : AppCompatActivity() {
     private lateinit var  isAnimation: AnimationDrawable
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        getSupportActionBar()?.hide()
         setContentView(R.layout.activity_loading)
         img = findViewById(R.id.imageView)
         img.setImageResource(R.drawable.animation_item)

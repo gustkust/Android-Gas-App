@@ -17,6 +17,8 @@ class MainActivity : AppCompatActivity(), OnDataPass {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        getSupportActionBar()?.hide()
+
         // odkomentowac przy pierwszym uruchamianiu !!!
         // dbHelper.createTables()
         // addSampleData()
